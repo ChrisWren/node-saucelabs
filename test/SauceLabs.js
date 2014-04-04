@@ -250,6 +250,13 @@ describe('SauceLabs', function () {
           sauce.createPublicLink(id, verifyLink(expected, done));
         });
       });
+
+      describe('#startUnitTest', function () {
+        it('POSTs `/rest/v1/:username/js-tests`', function (done) {
+          var mock = nockle.delete('/rest/v1/:username/js-tests');
+          sauce.startUnitTest(verifySuccess(mock, done));
+        });
+      });
     });
   });
 });
